@@ -4,7 +4,7 @@ const ProductoSchema = Schema({
     nombre: {
         type: String,
         required: [true, 'El nombre es obligatorio'],
-        unique: true
+        unique: false
     },
     estado: {
         type: Boolean,
@@ -32,7 +32,7 @@ const ProductoSchema = Schema({
 
 
 ProductoSchema.methods.toJSON = function() {
-    const { __v, estado, ...data  } = this.toObject();
+    const { __v, ...data  } = this.toObject();
     return data;
 }
 

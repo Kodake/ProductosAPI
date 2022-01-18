@@ -35,9 +35,9 @@ const obtenerProducto = async(req, res = response ) => {
 
 const crearProducto = async(req, res = response ) => {
 
-    const { estado, usuario, ...body } = req.body;
+    const { usuario, ...body } = req.body;
 
-    const productoDB = await Producto.findOne({ nombre: body.nombre.toUpperCase() });
+    const productoDB = await Producto.findOne({ nombre: body.nombre.toUpperCase(), estado: true });
 
     
     if ( productoDB ) {
